@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('patners', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('unit');
-            $table->string('position');
-            $table->string('group');
-            $table->string('photo')->nullable();
+            $table->string('description')->nullable();
+            $table->string('url')->nullable();
+            $table->string('logo');
             $table->timestamps();
             $table->softDeletes();
         });

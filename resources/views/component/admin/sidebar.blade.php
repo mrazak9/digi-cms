@@ -2,7 +2,7 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="/admin"><img src="{{ asset('storage/' . $gen_setting['logo'] ?? '') }}" alt="logo"
-                    width="200"></a>
+                    width="100px"></a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="/admin"> <img src="{{ asset('img/logo1.png') }}" alt="logo" width="40"></a>
@@ -78,8 +78,8 @@
                     {{-- <li class="{{ Request::is('admin/food_prices*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('food_prices.index') }}">Harga Pangan</a>
                     </li> --}}
-                    <li class="{{ Request::is('admin/employee*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('employees.index') }}">Data Pegawai</a>
+                    <li class="{{ Request::is('admin/patner*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('patners.index') }}">Data Patners</a>
                     </li>
 
                 </ul>
@@ -148,7 +148,7 @@
                             </li>
                         @endif
                     @empty
-                        <li>Menu Types Kosong</li>
+                        <li>Menu Post Kosong</li>
                     @endforelse
                 </ul>
             </li>

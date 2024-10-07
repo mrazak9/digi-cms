@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
 @section('title', 'Buat Post')
 @section('main')
     <div class="main-content">

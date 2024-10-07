@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
 
 @section('title', 'Pages')
 @section('main')
@@ -11,7 +11,7 @@
         <a href="{{ route('categories.create') }}" class="btn btn-primary mb-2">Create categories</a>
         <div class="row">
             <div class="col-12">
-                @include('layouts.alert')
+                @include('layouts.admin.alert')
             </div>
         </div>
         <table class="table">

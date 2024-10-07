@@ -71,22 +71,19 @@
     <label for="type">Type</label>
     <select class="form-control" name="type" id="type" required>
         <option value="default" {{ old('type', $page->type ?? '') == 'default' ? 'selected' : '' }}>Default</option>
-        <option value="post_list" {{ old('type', $page->type ?? '') == 'post_list' ? 'selected' : '' }}>Post
-            List(Artikel, Berita)</option>
-        <option value="post_grid" {{ old('type', $page->type ?? '') == 'post_grid' ? 'selected' : '' }}>Post Grid
-            (Pengumuman, Peraturan)</option>
-        {{-- <option value="agenda" {{ old('type', $page->type ?? '') == 'agenda' ? 'selected' : '' }}>Agenda</option> --}}
-        {{-- <option value="custom" {{ old('type', $page->type ?? '') == 'custom' ? 'selected' : '' }}>Custom</option> --}}
-        {{-- <option value="gallery" {{ old('type', $page->type ?? '') == 'gallery' ? 'selected' : '' }}>Gallery</option> --}}
-        {{-- <option value="data_pegawai" {{ old('type', $page->type ?? '') == 'data_pegawai' ? 'selected' : '' }}>Data
-            Pegawai
+        <option value="homepage" {{ old('type', $page->type ?? '') == 'homepage' ? 'selected' : '' }}>Home Page
+        <option value="contact" {{ old('type', $page->type ?? '') == 'contact' ? 'selected' : '' }}>Contact
         </option>
-        <option value="struktur_menu" {{ old('type', $page->type ?? '') == 'struktur_menu' ? 'selected' : '' }}>
-            Struktur Menu
+        <option value="service_list" {{ old('type', $page->type ?? '') == 'service_list' ? 'selected' : '' }}>Services
+            List
+        <option value="service_detail" {{ old('type', $page->type ?? '') == 'service_detail' ? 'selected' : '' }}>
+            Services Detail
         </option>
-        <option value="cari" {{ old('type', $page->type ?? '') == 'cari' ? 'selected' : '' }}>
-            Cari
-        </option> --}}
+        <option value="service_gallery" {{ old('type', $page->type ?? '') == 'service_gallery' ? 'selected' : '' }}>
+            Services
+            &
+            Gallery</option>
+        <option value="patners" {{ old('type', $page->type ?? '') == 'patners' ? 'selected' : '' }}>Patners</option>
     </select>
 </div>
 

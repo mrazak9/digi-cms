@@ -25,7 +25,7 @@
                                 <h4>Total User</h4>
                             </div>
                             <div class="card-body">
-                                {{ $data['jumlah_user'] }}
+                                {{ $data['jumlah_user'] ?? '0' }}
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                 <h4>Posts</h4>
                             </div>
                             <div class="card-body">
-                                {{ $data['jumlah_post'] }}
+                                {{ $data['jumlah_post'] ?? '0' }}
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                                 <h4>Pages</h4>
                             </div>
                             <div class="card-body">
-                                {{ $data['jumlah_page'] }}
+                                {{ $data['jumlah_page'] ?? '0' }}
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                                 <h4>Kunjungan Hari ini</h4>
                             </div>
                             <div class="card-body">
-                                {{ $data['totalVisitor'] }}
+                                {{ $data['totalVisitor'] ?? '0' }}
                             </div>
                         </div>
                     </div>
@@ -86,19 +86,19 @@
                             <canvas id="myChart" height="100"></canvas>
                             <div class="statistic-details mt-sm-4">
                                 <div class="statistic-details-item">
-                                    <div class="detail-value">{{ $data['todayVisits'] }}</div>
+                                    <div class="detail-value">{{ $data['todayVisits'] ?? '0' }}</div>
                                     <div class="detail-name">Kunjungan Hari ini</div>
                                 </div>
                                 <div class="statistic-details-item">
-                                    <div class="detail-value">{{ $data['weekVisits'] }}</div>
+                                    <div class="detail-value">{{ $data['weekVisits'] ?? '0' }}</div>
                                     <div class="detail-name">Kunjungan Minggu ini</div>
                                 </div>
                                 <div class="statistic-details-item">
-                                    <div class="detail-value">{{ $data['monthVisits'] }}</div>
+                                    <div class="detail-value">{{ $data['monthVisits'] ?? '0' }}</div>
                                     <div class="detail-name">Kunjungan Bulan ini</div>
                                 </div>
                                 <div class="statistic-details-item">
-                                    <div class="detail-value">{{ $data['yearVisits'] }}</div>
+                                    <div class="detail-value">{{ $data['yearVisits'] ?? '0' }}</div>
                                     <div class="detail-name">Kunjungan Tahun ini</div>
                                 </div>
                             </div>

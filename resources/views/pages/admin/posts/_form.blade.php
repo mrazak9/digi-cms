@@ -1,3 +1,7 @@
+@push('style')
+    <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.css') }}">
+@endpush
+
 <div class="form-group">
     <label for="categories">Kategori</label>
     <div class="selectgroup selectgroup-pills">
@@ -20,8 +24,10 @@
     </div>
 
     <div class="form-group">
-        <label for="content">Konten</label>
-        <textarea class="form-control" id="content" name="content" style="height: 250px;" required>{{ old('content', $post->content ?? '') }}</textarea>
+        <label for="content">Content</label>
+        <div>
+            <textarea class="summernote" name="content" id="content">{{ old('content', $post->content ?? '') }}</textarea>
+        </div>
     </div>
 
     <div class="form-group">
@@ -130,4 +136,5 @@
 
     @push('scripts')
         <script src="{{ asset('js/page/bootstrap-modal.js') }}"></script>
+        <script src="{{ asset('library/summernote/dist/summernote-bs4.js') }}"></script>
     @endpush

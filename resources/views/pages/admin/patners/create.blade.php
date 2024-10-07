@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
 
 @section('main')
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Buat Data Pegawai</h1>
+                <h1>Create Patners Data</h1>
             </div>
         </section>
         <div class="col-12">
@@ -22,9 +22,9 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('employees.store') }}" method="post">
+                    <form action="{{ route('patners.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        @include('pages.admin.employees._form')
+                        @include('pages.admin.patners._form')
                     </form>
                 </div>
             </div>

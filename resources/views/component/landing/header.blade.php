@@ -5,18 +5,18 @@
                    <div class="col-12 col-lg-7 fw-500 justify-content-lg-start justify-content-center">
                        <span class="me-25px fs-15 md-m-0">
                            <i class="feather icon-feather-phone-call text-base-color me-10px"></i><span
-                               class="text-light-gray">Phone: 1 800 222 000 - Any time 24/7</span>
+                               class="text-light-gray">Phone: {{ $gen_setting['contact_wa'] }} - Any time 24/7</span>
                        </span>
                        <span class="d-xl-inline-block d-none fs-15"><i
                                class="feather icon-feather-mail text-base-color me-10px"></i><a
-                               href="mailto:no-reply@domain.com"
-                               class="widget text-light-gray text-white-hover">no-reply@domain.com</a></span>
+                               href="mailto:{{ $gen_setting['contact_email'] }}"
+                               class="widget text-light-gray text-white-hover">{{ $gen_setting['contact_email'] }}</a></span>
                    </div>
                    <div class="col-md-5 text-end d-none d-lg-flex fs-15">
-                       <a href="http://www.facebook.com" target="_blank" class="me-25px lg-me-15px">Facebook</a>
-                       <a href="http://www.twitter.com" target="_blank" class="me-25px lg-me-15px">Twitter</a>
-                       <a href="https://in.pinterest.com/" target="_blank" class="me-25px lg-me-15px">Pinterest</a>
-                       <a href="https://www.instagram.com" target="_blank">Instagram</a>
+                       @foreach ($socialMedia as $media)
+                           <a href="{{ $media->url }}" target="_blank"
+                               class="me-25px lg-me-15px">{{ $media->name }}</a>
+                       @endforeach
                    </div>
                </div>
            </div>
@@ -26,12 +26,12 @@
            <div class="container-fluid">
                <div class="col-auto">
                    <a class="navbar-brand" href="index.html">
-                       <img src="frontend/images/img/logo_digi.JPG" data-at2x="frontend/images/img/logo_digi@2x.JPG"
-                           alt="" class="default-logo">
-                       <img src="frontend/images/img/logo_digi.JPG" data-at2x="frontend/images/img/logo_digi@2x.JPG"
-                           alt="" class="alt-logo">
-                       <img src="frontend/images/img/logo_digi.JPG" data-at2x="frontend/images/img/logo_digi@2x.JPG"
-                           alt="" class="mobile-logo">
+                       <img src="{{ asset('storage/' . $gen_setting['logo'] ?? '') }}"
+                           data-at2x="frontend/images/img/logo_digi@2x.JPG" alt="" class="default-logo">
+                       <img src="{{ asset('storage/' . $gen_setting['logo'] ?? '') }}"
+                           data-at2x="frontend/images/img/logo_digi@2x.JPG" alt="" class="alt-logo">
+                       <img src="{{ asset('storage/' . $gen_setting['logo'] ?? '') }}"
+                           data-at2x="frontend/images/img/logo_digi@2x.JPG" alt="" class="mobile-logo">
                    </a>
                </div>
                <div class="col-auto menu-order left-nav">
@@ -43,42 +43,59 @@
                        <span class="navbar-toggler-line"></span>
                    </button>
                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+
+
                        <ul class="navbar-nav">
-                           <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                           <li class="nav-item"><a href="about-us" class="nav-link">About us</a></li>
-                           <li class="nav-item dropdown dropdown-with-icon-style02"><a href="our-services"
-                                   class="nav-link">Our
-                                   services</a>
-                               <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink"
-                                   role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                   <li><a href="service-details"><i class="line-icon-Gears align-middle text-white"></i>
-                                           Engineering
-                                       </a></li>
-                                   <li><a href="service-details"><i
-                                               class="line-icon-Engineering align-middle text-white"></i>
-                                           Manufacturing Machine Services
-                                       </a></li>
-                                   <li><a href="service-details"><i
-                                               class="line-icon-Dropbox align-middle text-white"></i>
-                                           Procurement of Spare Parts & Materials
-                                       </a></li>
-                                   <li><a href="service-details"><i
-                                               class="line-icon-Computer align-middle text-white"></i>
-                                           IT Consultant
-                                       </a></li>
-                               </ul>
-                           </li>
-                           <li class="nav-item"><a href="#" class="nav-link">Clients & Partners</a></li>
-                           <li class="nav-item"><a href="contact-us" class="nav-link">Contact us</a></li>
+                           @foreach ($menu_setting as $menu_set)
+                               @if ($menu_set->submenus->count())
+                                   <li class="nav-item dropdown dropdown-with-icon-style02">
+                                       <a href="/{{ $menu_set->slug_page }}" class="nav-link">
+                                           {{ $menu_set->menu_name }}
+                                       </a>
+                                       <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownMenuLink"
+                                           role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                           @if ($menu_set->posts->isNotEmpty())
+                                               <ul class="submenu">
+                                                   @foreach ($menu_set->posts as $post)
+                                                       <li><a href="/{{ $post->slug }}">
+                                                               {{ $post->title }}
+                                                           </a></li>
+                                                   @endforeach
+                                               </ul>
+                                           @else
+                                               @foreach ($menu_set->submenus as $submenu)
+                                                   @if (Str::contains($submenu->slug_page, 'http'))
+                                                       <li class="nav-item"><a class="dropdown-item"
+                                                               href="{{ $submenu->slug_page }}"
+                                                               target="blank">{{ $submenu->menu_name }}</a>
+                                                       </li>
+                                                   @else
+                                                       <li class="nav-item"><a class="dropdown-item"
+                                                               href="/{{ $submenu->slug_page }}">{{ $submenu->menu_name }}</a>
+                                                       </li>
+                                                   @endif
+                                               @endforeach
+                                           @endif
+
+                                       </ul>
+                                   </li>
+                               @else
+                                   <li class="nav-item">
+                                       <a href="/{{ $menu_set->slug_page }}"
+                                           class="nav-link">{{ $menu_set->menu_name }}</a>
+                                   </li>
+                               @endif
+                           @endforeach
                        </ul>
                    </div>
                </div>
                <div class="col-auto ms-auto ps-lg-0 d-none d-sm-flex">
                    <div class="header-icon">
                        <div class="d-none d-xl-inline-block">
-                           <div class="fw-600"><a href="tel:1800222000" class="widget-text"><i
-                                       class="feather icon-feather-phone-call me-10px"></i>1 800 222 000</a></div>
+                           <div class="fw-600"><a href="tel:{{ $gen_setting['contact_wa'] }}" class="widget-text"><i
+                                       class="feather icon-feather-phone-call me-10px"></i>{{ $gen_setting['contact_wa'] }}</a>
+                           </div>
                        </div>
                        <div class="header-button ms-25px">
                            <a href="contact-us.html"

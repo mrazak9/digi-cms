@@ -2,13 +2,16 @@
 <html class="no-js" lang="en">
 
 <head>
-    <title>Digi Tekno Indonesia</title>
+    <title>@yield('title', config('app.seo.default_title'))</title>
+    <meta name="description" content="@yield('description', config('app.seo.default_meta_description'))">
+    <meta name="keywords"
+        content="Engineering, Manufacturing machine services, Procurement of spare parts and materials, IT consultant">
+    <meta name="author" content="PT Digi Tekno Indonesia">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="ThemeZaa">
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta name="description"
-        content="Elevate your online presence with Crafto - a modern, versatile, multipurpose Bootstrap 5 responsive HTML5, SCSS template using highly creative 52+ ready demos.">
     <!-- favicon icon -->
     <link rel="shortcut icon" href="frontend/images/favicon.png">
     <link rel="apple-touch-icon" href="frontend/images/apple-touch-icon-57x57.png">

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
 
 @section('main')
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Edit Data Pegawai</h1>
+                <h1>Edit Data patners</h1>
             </div>
         </section>
         <div class="col-12">
@@ -13,10 +13,10 @@
                     <h4>Update</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('employees.update', $employee->id) }}" method="post">
+                    <form action="{{ route('patners.update', $patner->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        @include('pages.admin.employees._form')
+                        @include('pages.admin.patners._form')
                     </form>
                 </div>
             </div>

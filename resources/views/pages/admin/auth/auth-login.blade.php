@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                @include('layouts.alert')
+                @include('layouts.admin.alert')
             </div>
         </div>
 

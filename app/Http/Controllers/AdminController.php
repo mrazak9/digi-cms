@@ -22,7 +22,7 @@ class AdminController extends Controller
         dd($pages);
         $jumlah_post = $posts->count();
         $jumlah_page = $posts->count();
-        return view('pages.app.dashboard.', compact('types', 'jumlah_post', 'jumlah_page'));
+        return view('pages.admin.dashboard', compact('types', 'jumlah_post', 'jumlah_page'));
     }
 
     public function logout(Request $request)
@@ -52,24 +52,35 @@ class AdminController extends Controller
     public function displayVisitors()
     {
         // Ambil data dari tabel laravisits
-        $visitorsPostData =
-            Post::withTotalVisitCount()
+        $visitorsPostData = Post::withTotalVisitCount()
             ->orderByDesc('visit_count_total')
             ->take(8)
             ->get();
 
-        $visitorsPageData =
-            Page::withTotalVisitCount()
+        $visitorsPageData = Page::withTotalVisitCount()
             ->orderByDesc('visit_count_total')
             ->take(5)
             ->get();
 
         $combinedData = $visitorsPostData->merge($visitorsPageData);
+
+        // Cek apakah combinedData kosong
+        if ($combinedData->isEmpty()) {
+            return [
+                [
+                    'title' => 'No Data',
+                    'total' => 0,
+                    'percentage' => 0,
+                ]
+            ];
+        }
+
         $totalVisits = $combinedData->sum('visit_count_total');
 
         $filteredData = $combinedData->filter(function ($item) {
             return $item->visit_count_total > 0;
         });
+
         $result = $filteredData->map(function ($item) use ($totalVisits) {
             $percentage = ($item->visit_count_total / $totalVisits) * 100;
 
@@ -80,10 +91,10 @@ class AdminController extends Controller
             ];
         })->sortByDesc('total');
 
-
         // Kembalikan hasil ke view
         return $result;
     }
+
 
     function visitorLasWeek()
     {

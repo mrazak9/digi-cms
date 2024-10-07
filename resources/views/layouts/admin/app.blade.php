@@ -24,16 +24,16 @@
     <div id="app">
         <div class="main-wrapper">
             <!-- Header -->
-            @include('components.header')
+            @include('component.admin.header')
 
             <!-- Sidebar -->
-            @include('components.sidebar')
+            @include('component.admin.sidebar')
 
             <!-- Content -->
             @yield('main')
 
             <!-- Footer -->
-            @include('components.footer')
+            @include('component.admin.footer')
         </div>
     </div>
 

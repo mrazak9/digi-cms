@@ -52,11 +52,29 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('footerColumn2', $footer_column_2);
             });
 
+            // Ambil semua pengaturan
             $setting = GeneralSetting::pluck('value', 'name_setting');
 
-            $menu_setting = Menu::whereNull('main_menu')->with('submenus')->orderBy('sequence')->get();
+            // Ambil menu utama beserta submenus
+            $menu_setting = Menu::whereNull('main_menu')
+                ->with('submenus') // ambil submenus dari menu
+                ->orderBy('sequence')
+                ->get();
 
-            // Gunakan View Composer untuk mengirim data ke semua view
+            // Loop melalui setiap menu dan cek type berdasarkan slug_page
+            foreach ($menu_setting as $menu) {
+                // Cari type berdasarkan slug_page dari Menu di tabel Type
+                $type = Type::where('slug', $menu->slug_page)->first();
+
+                // Jika type ditemukan, ambil semua post berdasarkan type_id
+                if ($type) {
+                    $menu->posts = Post::where('type_id', $type->id)->get();
+                } else {
+                    $menu->posts = collect(); // Jika tidak ada type, buat collection kosong
+                }
+            }
+
+            // Menggunakan View Composer untuk mengirim data ke semua view
             View::composer('*', function ($view) use ($setting, $menu_setting) {
                 $view->with('gen_setting', $setting);
                 $view->with('menu_setting', $menu_setting);
@@ -148,14 +166,14 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('page', $page);
             });
 
-            View::composer('components.header', function ($view) {
+            View::composer('component.admin.header', function ($view) {
                 $lastLoginTime = $this->getLastLoginTime();
 
                 $view->with('lastLoginTime', $lastLoginTime);
             });
 
             //Dashboard Data
-            view()->composer('pages.app.dashboard', function ($view) {
+            view()->composer('pages.admin.dashboard', function ($view) {
                 $types = Type::all();
                 $users = User::all();
 
@@ -200,8 +218,6 @@ class AppServiceProvider extends ServiceProvider
                 $browserData = app(AdminController::class)->showBrowserData();
                 $platformData = app(AdminController::class)->showPlatformData();
 
-
-                $test = Post::popularToday()->get();
                 $view->with('data', $data);
                 $view->with('visitors', $visitors);
                 $view->with('visitorsData', $visitorsData);

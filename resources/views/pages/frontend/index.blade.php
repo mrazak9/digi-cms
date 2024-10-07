@@ -9,7 +9,7 @@
 @section('content')
     <!-- start slider -->
     <section class="p-0 top-space-margin full-screen md-h-600px sm-h-650px">
-        <div class="swiper h-100 magic-cursor swiper-light-pagination"
+        <div class="swiper h-100 swiper-light-pagination"
             data-slider-options='{ "slidesPerView": 1, "loop": true, "pagination": { "el": ".swiper-pagination-bullets", "clickable": true }, "navigation": { "nextEl": ".slider-one-slide-next-1", "prevEl": ".slider-one-slide-prev-1" }, "autoplay": { "delay": 4000, "disableOnInteraction": false },  "keyboard": { "enabled": true, "onlyInViewport": true }, "effect": "slide" }'>
             <div class="swiper-wrapper">
                 <!-- start slider item -->
@@ -27,17 +27,6 @@
                                     <a href="about-us.html"
                                         class="btn btn-white btn-extra-large btn-round-edge fw-700 btn-box-shadow me-35px">Read
                                         More</a>
-                                    <a href="https://www.youtube.com/watch?v=cfXHhfNy7tU"
-                                        class="text-center d-inline-flex sm-mt-20px rounded-circle video-icon-box video-icon-medium popup-vimeo">
-                                        <span class="video-icon bg-base-color me-10px">
-                                            <i class="fa-solid fa-play text-white"></i>
-                                            <span class="video-icon-sonar">
-                                                <span
-                                                    class="video-icon-sonar-afr border border-2 border-color-base-color"></span>
-                                            </span>
-                                        </span>
-                                        <span class="text-white fs-20">How it work?</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -52,22 +41,11 @@
                                 <h1 class="fw-600">committed to providing effective, cost-effective, fast services
                                     & products.</h1>
                                 <!-- <div class="fs-20 opacity-6 mb-40px sm-mb-30px">Swift and reliable air freight solutions
-                                            worldwide.</div> -->
+                                                                                                        worldwide.</div> -->
                                 <div class="lg-mb-8 md-mb-0">
                                     <a href="about-us.html"
                                         class="btn btn-white btn-extra-large btn-round-edge fw-700 btn-box-shadow me-35px">Read
                                         More</a>
-                                    <a href="https://www.youtube.com/watch?v=cfXHhfNy7tU"
-                                        class="text-center d-inline-flex sm-mt-20px rounded-circle video-icon-box video-icon-medium popup-vimeo">
-                                        <span class="video-icon bg-base-color me-10px">
-                                            <i class="fa-solid fa-play text-dark-gray"></i>
-                                            <span class="video-icon-sonar">
-                                                <span
-                                                    class="video-icon-sonar-afr border border-2 border-color-base-color"></span>
-                                            </span>
-                                        </span>
-                                        <span class="text-white fs-20">How it work?</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -87,17 +65,6 @@
                                     <a href="about-us.html"
                                         class="btn btn-white btn-extra-large btn-round-edge fw-700 btn-box-shadow me-35px">Read
                                         More</a>
-                                    <a href="https://www.youtube.com/watch?v=cfXHhfNy7tU"
-                                        class="text-center d-inline-flex sm-mt-20px rounded-circle video-icon-box video-icon-medium popup-vimeo">
-                                        <span class="video-icon bg-base-color me-10px">
-                                            <i class="fa-solid fa-play text-dark-gray"></i>
-                                            <span class="video-icon-sonar">
-                                                <span
-                                                    class="video-icon-sonar-afr border border-2 border-color-base-color"></span>
-                                            </span>
-                                        </span>
-                                        <span class="text-white fs-20">How it work?</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -122,30 +89,7 @@
         </div>
     </section>
     <!-- end slider -->
-    <!-- start section -->
-    <section class="p-0 lg-pt-8 xs-pt-50px">
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-xl-5 outside-box-top-205px lg-mt-0 position-relative z-index-1">
-                    <div class="border-radius-10px overflow-hidden">
-                        <div class="bg-base-color p-50px xs-p-30px position-relative">
-                            <span class="text-white opacity-8 fw-500 d-block mb-5px">PT. DIGI TEKNO INDONESIA</span>
-                            <h5 class="mb-0 fw-500 text-white">Engineering, Manufacturing & IT Solutions Services</h5>
-                            <div class="position-absolute top-0 end-0">
-                                <img src="frontend/images/demo-logistics-diagonal-line-01.svg" alt="" height="100"
-                                    width="100">
-                            </div>
-                        </div>
-                        <div class="bg-dark-gray ps-50px pe-50px pt-20px pb-20px sm-ps-30px sm-pe-30px">
-                            <a href="contact-us.html" class="fs-19 fw-500 text-white d-flex w-100 align-items-center">Get a
-                                free quote now<i class="feather icon-feather-plus ms-auto icon-extra-medium"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end section -->
+
     <!-- start section -->
     <section class="position-relative">
         <div class="container">
@@ -229,63 +173,7 @@
         </div>
     </section>
     <!-- end section -->
-    <!-- start section -->
-    <section class="p-0">
-        <div class="container-fluid">
-            <div class="row row-cols-1 row-cols-lg-6 row-cols-md-3 clients-style-04 border-top sm-border-top-0"
-                data-anime='{"opacity": [0,1], "duration": 400, "delay": 300, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                <!-- start client item -->
-                <div
-                    class="col text-center border-end border-color-transparent-dark-very-light sm-border-end-0 sm-border-top transition-inner-all pt-45px pb-45px sm-pt-30px sm-pb-30px">
-                    <div class="client-box">
-                        <a href="#"><img src="frontend/images/demo-logistics-client-01.svg" alt="" /></a>
-                    </div>
-                </div>
-                <!-- end client item -->
-                <!-- start client item -->
-                <div
-                    class="col text-center border-end border-color-transparent-dark-very-light sm-border-end-0 sm-border-top transition-inner-all pt-45px pb-45px sm-pt-30px sm-pb-30px">
-                    <div class="client-box">
-                        <a href="#"><img src="frontend/images/demo-logistics-client-02.svg" alt="" /></a>
-                    </div>
-                </div>
-                <!-- end client item -->
-                <!-- start client item -->
-                <div
-                    class="col text-center border-end border-color-transparent-dark-very-light sm-border-end-0 sm-border-top transition-inner-all pt-45px pb-45px sm-pt-30px sm-pb-30px">
-                    <div class="client-box">
-                        <a href="#"><img src="frontend/images/demo-logistics-client-03.svg" alt="" /></a>
-                    </div>
-                </div>
-                <!-- end client item -->
-                <!-- start client item -->
-                <div
-                    class="col text-center border-end border-color-transparent-dark-very-light sm-border-end-0 md-border-top transition-inner-all pt-45px pb-45px sm-pt-30px sm-pb-30px">
-                    <div class="client-box">
-                        <a href="#"><img src="frontend/images/demo-logistics-client-04.svg" alt="" /></a>
-                    </div>
-                </div>
-                <!-- end client item -->
-                <!-- start client item -->
-                <div
-                    class="col text-center border-end border-color-transparent-dark-very-light sm-border-end-0 md-border-top transition-inner-all pt-45px pb-45px sm-pt-30px sm-pb-30px">
-                    <div class="client-box">
-                        <a href="#"><img src="frontend/images/demo-logistics-client-05.svg" alt="" /></a>
-                    </div>
-                </div>
-                <!-- end client item -->
-                <!-- start client item -->
-                <div
-                    class="col text-center border-end border-color-transparent-dark-very-light sm-border-end-0 md-border-top transition-inner-all pt-45px pb-45px sm-pt-30px sm-pb-30px">
-                    <div class="client-box">
-                        <a href="#"><img src="frontend/images/demo-logistics-client-06.svg" alt="" /></a>
-                    </div>
-                </div>
-                <!-- end client item -->
-            </div>
-        </div>
-    </section>
-    <!-- end section -->
+
     <!-- start section -->
     <section class="overflow-hidden bg-very-light-gray">
         <div class="container">
@@ -424,7 +312,7 @@
     </section>
     <!-- end section -->
     <!-- start section -->
-    <section class="p-0 bg-base-color">
+    {{-- <section class="p-0 bg-base-color">
         <div class="container">
             <div class="row align-items-center justify-content-center g-0">
                 <div class="col-auto d-flex align-items-center"
@@ -437,10 +325,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- end section -->
     <!-- start section -->
-    <section>
+    {{-- <section>
         <div class="container">
             <div class="row align-items-center mb-8 sm-mb-50px justify-content-md-center">
                 <div class="col-xl-5 col-lg-6 col-md-12 md-mb-50px"
@@ -598,133 +486,79 @@
                 <!-- end counter item -->
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- end section -->
+
     <!-- start section -->
-    <section class="cover-background" style="background-image: url(frontend/images/img/002.jpg)">
-        <div class="opacity-extra-medium bg-dark-gray d-xl-none d-block"></div>
-        <div class="container position-relative z-index-1">
-            <div class="row">
-                <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-10"
-                    data-anime='{ "translateX": [-30, 0], "opacity": [0,1], "duration": 1200, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'>
+    <section class="pt-0">
+        <div class="container">
+            <br>
+            <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-6 text-center mb-1"
+                    data-anime='{ "translateY": [0, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                     <span
-                        class="fs-16 lh-22 fw-600 mb-15px d-inline-block text-uppercase text-white border-bottom border-2 border-color-base-color xs-border-bottom-0">A
-                        few good reasons</span>
-                    <h2 class="fw-600 text-white">Here is what our clients have to say.</h2>
-                    <div class="swiper position-relative"
-                        data-slider-options='{ "autoHeight": true, "loop": true, "allowTouchMove": true, "autoplay": { "delay": 4000, "disableOnInteraction": false }, "navigation": { "nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev" }, "effect": "fade" }'>
-                        <div class="swiper-wrapper mb-40px">
-                            <!-- start text slider item -->
-                            <div class="swiper-slide review-style-08">
-                                <p class="text-white opacity-7 w-80 lg-w-100">Love the theme, really neat and super
-                                    easy
-                                    to use. But the customer support is what makes this an even greater theme! ThemeZaa
-                                    solved all the problems. I had with my custom settings.</p>
-                                <div class="mt-20px">
-                                    <img class="w-110px me-15px" src="https://via.placeholder.com/270x245"
-                                        alt="">
-                                    <div class="d-inline-block align-middle text-start">
-                                        <div class="text-white fs-20">Alexander harvard</div>
-                                        <div class="review-star-icon fs-18">
-                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                                class="bi bi-star-fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end text slider item -->
-                            <!-- start text slider item -->
-                            <div class="swiper-slide review-style-08">
-                                <p class="text-white opacity-7 w-80 lg-w-100">I've purchased several themes over the
-                                    years and this theme, by far is absolutely amazing. It's built extremely well the
-                                    back end was well thought out the design options are endless.</p>
-                                <div class="mt-20px">
-                                    <img class="w-110px me-15px" src="https://via.placeholder.com/270x245"
-                                        alt="">
-                                    <div class="d-inline-block align-middle text-start">
-                                        <div class="text-white fs-20">Shoko mugikura</div>
-                                        <div class="review-star-icon fs-18">
-                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                                class="bi bi-star-fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end text slider item -->
-                            <!-- start text slider item -->
-                            <div class="swiper-slide review-style-08">
-                                <p class="text-white opacity-7 w-80 lg-w-100">The theme is very valid and offers many
-                                    possibilities of customization to adapt it to your needs, but the thing I got the
-                                    most out of it was the relationship with the support team.</p>
-                                <div class="mt-20px">
-                                    <img class="w-110px me-15px" src="https://via.placeholder.com/270x245"
-                                        alt="">
-                                    <div class="d-inline-block align-middle text-start">
-                                        <div class="text-white fs-20">Leonel mooney</div>
-                                        <div class="review-star-icon fs-18">
-                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                                class="bi bi-star-fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end text slider item -->
-                        </div>
-                        <div class="d-flex">
-                            <!-- start slider navigation -->
-                            <div
-                                class="slider-one-slide-prev-1 swiper-button-prev slider-navigation-style-04 bg-white-transparent-extra-light">
-                                <i class="bi bi-arrow-left-short text-white icon-very-medium"></i>
-                            </div>
-                            <div
-                                class="slider-one-slide-next-1 swiper-button-next slider-navigation-style-04 bg-white-transparent-extra-light">
-                                <i class="bi bi-arrow-right-short text-white icon-very-medium"></i>
-                            </div>
-                            <!-- end slider navigation -->
-                        </div>
-                    </div>
+                        class="text-dark-gray fw-700 fs-15 text-uppercase border-1 pb-5px border-bottom border-color-extra-medium-gray text-dark-gray">
+                        Our Client</span>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- end section -->
-    <!-- start section -->
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 md-mb-30px p-0">
-                    <div class="h-100 md-h-400px xs-h-300px cover-background background-position-right"
-                        style="background-image: url(frontend/images/img/010.png)"></div>
-                </div>
-                <div class="col-xl-5 col-lg-6 ps-70px lg-ps-15px"
-                    data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 300, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                    <span
-                        class="fs-16 lh-22 fw-700 mb-15px d-inline-block text-uppercase text-dark-gray border-bottom border-2 border-color-base-color">Logistic
-                        services features</span>
-                    <h2 class="fw-700 text-dark-gray ls-minus-1px mb-20px w-80 xxl-w-100">We are the best service
-                        provide in all parts of the worldwide.</h2>
-                    <p class="w-75 xxl-w-100 mb-30px">We have more than 20 years of experience in import-export and
-                        logistics services. 2020 is the year we are finally in all countries in the all over world!</p>
-                    <div>
-                        <a href="our-services.html"
-                            class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-15px">
-                            <span>
-                                <span class="btn-text">Explore more</span>
-                                <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
-                                <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
-                            </span>
-                        </a>
-                        <a href="contact-us.html"
-                            class="btn btn-large btn-transparent-light-gray btn-hover-animation-switch btn-round-edge sm-mb-15px sm-mt-15px">
-                            <span>
-                                <span class="btn-text">Get a quote</span>
-                                <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
-                                <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
-                            </span>
-                        </a>
+            <div class="row position-relative clients-style-08 mt-25px"
+                data-anime='{ "translateX": [0, 0], "opacity": [0,1], "duration": 800, "delay":100, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                <div class="col swiper text-center feather-shadow"
+                    data-slider-options='{ "slidesPerView": 2, "spaceBetween":0, "speed": 3000, "loop": true, "pagination": { "el": ".slider-four-slide-pagination-2", "clickable": false }, "allowTouchMove": false, "autoplay": { "delay":0, "disableOnInteraction": false, "pauseOnMouseEnter": false}, "navigation": { "nextEl": ".slider-four-slide-next-2", "prevEl": ".slider-four-slide-prev-2" }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "1200": { "slidesPerView": 5 }, "768": { "slidesPerView": 3 }, "576": { "slidesPerView": 2 } }, "effect": "slide" }'>
+                    <div class="swiper-wrapper marquee-slide">
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-walmart-dark-blue.svg" alt="" /></a>
+                        </div>
+                        <!-- end client item -->
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-netflix-dark-blue.svg" alt="" /></a>
+                        </div>
+                        <!-- end client item -->
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-invision-dark-blue.svg"
+                                    alt="" /></a>
+                        </div>
+                        <!-- end client item -->
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-yahoo-dark-blue.svg" alt="" /></a>
+                        </div>
+                        <!-- end client item -->
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-amazon-dark-blue.svg" alt="" /></a>
+                        </div>
+                        <!-- end client item -->
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-walmart-dark-blue.svg" alt="" /></a>
+                        </div>
+                        <!-- end client item -->
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-netflix-dark-blue.svg" alt="" /></a>
+                        </div>
+                        <!-- end client item -->
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-invision-dark-blue.svg"
+                                    alt="" /></a>
+                        </div>
+                        <!-- end client item -->
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-yahoo-dark-blue.svg" alt="" /></a>
+                        </div>
+                        <!-- end client item -->
+                        <!-- start client item -->
+                        <div class="swiper-slide">
+                            <a href="#"><img src="frontend/images/logo-invision-dark-blue.svg"
+                                    alt="" /></a>
+                        </div>
+                        <!-- end client item -->
                     </div>
                 </div>
             </div>

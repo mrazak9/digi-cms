@@ -9,6 +9,7 @@ use App\Models\Employee;
 use App\Models\Gallery;
 use App\Models\Menu;
 use App\Models\Page;
+use App\Models\Patner;
 use App\Models\Post;
 use App\Models\Slider;
 use App\Models\Type;
@@ -143,7 +144,6 @@ class PageController extends Controller
 
     function show_page(Request $request, $slug)
     {
-        // return $request;
         $visitor = Visitor();
 
         $platform = $request->visitor()->platform();
@@ -152,83 +152,60 @@ class PageController extends Controller
 
         $data_visitor = [
             'platform' => $platform,
-            'languages' => $languages[0],
+            // 'languages' => $languages[0],
             'browser' => $browser,
             'slug' => $slug
         ];
         $page = Page::where('slug', $slug)
-            ->whereHas('approval', function ($query) {
-                $query->where('status', 'publish');
-            })
+            // ->whereHas('approval', function ($query) {
+            //     $query->where('status', 'publish');
+            // })
             ->withTotalVisitCount()
             ->first();
+
         if ($page) {
-            if ($page->type == 'post_list') {
+            if ($page->type == 'service_list') {
                 $type = Type::where('slug', $slug)->first();
                 $posts = Post::where('type_id', $type->id)
-                    ->whereHas('approval', function ($query) {
-                        $query->where('status', 'publish');
-                    })->withTotalVisitCount()->paginate(5);
+                    // ->whereHas('approval', function ($query) {
+                    //     $query->where('status', 'publish');
+                    // })
+                    ->withTotalVisitCount()->paginate(5);
 
                 $categories = Post::getAllCategoriesWithCount();
 
                 // return $categories;
                 // Jika ditemukan, tampilkan halaman
                 $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
-                return view('pages.posts.post_list', compact('page', 'posts', 'categories'));
+                return view('pages.frontend.pages.list', compact('page', 'posts', 'categories'));
             }
-            // if ($page->type == 'gallery') {
-            //     $type = Type::where('slug', $slug)->first();
-            //     $posts = Post::where('type_id', $type->id)->whereHas('approval', function ($query) {
-            //         $query->where('status', 'publish');
-            //     })->withTotalVisitCount()->paginate(5);
-            //     $categories = Post::getAllCategoriesWithCount();
-
-            //     // return $categories;
-            //     // Jika ditemukan, tampilkan halaman
-            //     $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
-            //     return view('pages.posts.post_grid', compact('page', 'posts', 'categories'));
-            // }
-
-            if ($page->type == 'post_grid') {
+            if ($page->type == 'service_gallery') {
                 $type = Type::where('slug', $slug)->first();
+                $posts = Post::where('type_id', $type->id)
+                    // ->whereHas('approval', function ($query) {
+                    //     $query->where('status', 'publish');
+                    // })
+                    ->withTotalVisitCount()->paginate(5);
+                $categories = Post::getAllCategoriesWithCount();
 
-                if ($type) {
-                    $posts = Post::where('type_id', $type->id)->whereHas('approval', function ($query) {
-                        $query->where('status', 'publish');
-                    })->withTotalVisitCount()->paginate(6);
-                    $categories = Post::getAllCategoriesWithCount();
-                    // Jika ditemukan, tampilkan halaman
-                    if ($posts->isEmpty()) {
-                        // Redirect ke halaman 404 jika $posts kosong
-                        return abort(404);
-                    }
-                    $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
-
-                    return view('pages.posts.post_grid', compact('page', 'posts', 'categories'));
-                }
-            }
-
-            if (Str::contains($page->slug, ['kontak', 'pengaduan'])) {
+                // return $categories;
                 // Jika ditemukan, tampilkan halaman
                 $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
-                return view('pages.pages.contact', compact('page'));
+                return view('pages.frontend.pages.gallery', compact('page', 'posts', 'categories'));
             }
 
-            if ($page->type == 'data_pegawai') {
-                // Jika ditemukan, tampilkan halaman
-                $employees = Employee::all();
-                $groupedEmployees = $employees->groupBy('group');
+            if ($page->type == 'patners') {
+                $type = Type::where('slug', $slug)->first();
+                $patners = Patner::all();
+                return view('pages.frontend.pages.patners', compact('page', 'patners'));
+            }
 
-                $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
-                return view('pages.pages.data_pegawai', compact('page', 'employees', 'groupedEmployees'));
-            }
-            if ($page->type == 'struktur_menu') {
+            if (Str::contains($page->slug, ['contact'])) {
                 // Jika ditemukan, tampilkan halaman
-                $menus = Menu::getMenuTree();
                 $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
-                return view('pages.pages.struktur_menu', compact('page', 'menus'));
+                return view('pages.frontend.pages.contact', compact('page'));
             }
+
             if ($page->type == 'cari') {
                 // Jika ditemukan, tampilkan halaman
                 $query = $request->input('query');
@@ -244,20 +221,21 @@ class PageController extends Controller
                     ->get();
 
                 $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
-                return view('pages.pages.search', compact('page', 'pages', 'posts', 'categories', 'query'));
+                return view('pages.frontend.pages.search', compact('page', 'pages', 'posts', 'categories', 'query'));
             }
             if ($page->type == 'default') {
                 // Jika ditemukan, tampilkan halaman
                 $categories = Post::getAllCategoriesWithCount();
-                $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
-                return view('pages.pages.default', compact('page', 'categories'));
+                // $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
+                return view('pages.frontend.pages.default', compact('page', 'categories'));
             }
         } else {
             // Jika tidak ditemukan, cari di posting
-            $post = Post::where('slug', $slug)->whereHas('approval', function ($query) {
-                $query->where('status', 'publish');
-            })->withTotalVisitCount()->first();
-
+            $post = Post::where('slug', $slug)
+                // ->whereHas('approval', function ($query) {
+                //     $query->where('status', 'publish');
+                // })
+                ->withTotalVisitCount()->first();
             if ($post) {
                 $type = Type::findOrFail($post->type_id);
                 $page = Page::where('slug', $type->slug)->whereHas('approval', function ($query) {
@@ -283,7 +261,7 @@ class PageController extends Controller
 
                 $post->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
                 // Jika ditemukan, tampilkan detail post
-                return view('pages.posts.post_detail', compact('visitor', 'allpost', 'categories', 'page', 'post', 'previousPost', 'nextPost', 'galleries'));
+                return view('pages.frontend.pages.detail', compact('visitor', 'allpost', 'categories', 'page', 'post', 'previousPost', 'nextPost', 'galleries'));
             } else {
                 // Jika tidak ditemukan, mungkin tindakan lain
                 abort(404);

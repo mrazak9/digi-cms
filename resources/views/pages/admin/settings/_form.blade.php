@@ -2,12 +2,13 @@
     <label for="name_setting">Nama Pengaturan</label>
     <input class="form-control" type="text" name="name_setting" id="name_setting"
         value="{{ old('name_setting', $setting->name_setting ?? '') }}" required
-        {{ $type_setting == 'edit' ? 'disabled' : '' }}>
+        {{ $type_setting == 'edit' ? 'readonly' : '' }}>
 </div>
+
 
 <div class="form-group">
     <label for="value">Isi Pengaturan</label>
-    @if (isset($setting) && Str::contains($setting->name_setting, 'logo'))
+    @if (isset($setting) && Str::contains($setting->name_setting, ['logo', 'image']))
         <!-- Tampilkan input file untuk logo -->
         <div class="form-group col-md-6">
             <div class="custom-file">

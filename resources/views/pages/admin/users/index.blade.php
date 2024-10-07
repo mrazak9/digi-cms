@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
 
 @section('title', 'Users')
 
@@ -21,7 +21,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        @include('layouts.alert')
+                        @include('layouts.admin.alert')
                     </div>
                 </div>
                 <div class="row mt-4">

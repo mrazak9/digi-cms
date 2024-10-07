@@ -36,13 +36,13 @@
                         <p class="mb-35px w-90 lg-w-100 sm-mb-25px">We are committed to providing the best service
                             and product quality for you.
                         </p>
-                        <a href="#"
+                        {{-- <a href="#"
                             class="btn btn-large btn-switch-text btn-dark-gray left-icon btn-box-shadow btn-round-edge">
                             <span>
                                 <span><i class="bi bi-telephone-outbound"></i></span>
                                 <span class="btn-double-text" data-text="Schedule a call">Schedule a call</span>
                             </span>
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7 offset-xl-1">
@@ -53,19 +53,20 @@
                             <div class="row g-0 box-shadow-quadruple-large border-radius-6px overflow-hidden">
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="h-100 cover-background xs-h-300px"
-                                        style="background-image: url(https://via.placeholder.com/350x350)"></div>
+                                        style="background-image: url({{ 'storage/' . $gen_setting['contact_image'] }})">
+                                    </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 bg-white box-shadow-extra-large p-30px">
                                     <div class="services-box-content last-paragraph-no-margin">
-                                        <span class="d-block text-dark-gray fw-700 fs-19 mb-10px">Bandung,
-                                            Indonesia</span>
-                                        <p>Magna Commercial Blok MD 18, Sumarecon - Gedebage| Bandung - West Java</p>
-                                        <a href="https://maps.app.goo.gl/Zn5dWeB8tHEWTMZJ8"
+                                        <span class="d-block text-dark-gray fw-700 fs-19 mb-10px">Office Address</span>
+                                        <p>{{ $gen_setting['contact_alamat'] }}</p>
+                                        <a href="{{ $gen_setting['contact_map'] }}"
                                             class="fs-17 lh-22 fw-500 text-dark-gray text-decoration-line-bottom d-inline-block mb-25px">View
                                             on map</a>
                                         <div class="text-dark-gray fw-600"><i
                                                 class="feather icon-feather-phone-call icon-small me-10px text-dark-gray"></i><a
-                                                href="tel:+6285924101807">+62 859 2410 1807</a></div>
+                                                href="tel:{{ $gen_setting['contact_wa'] }}">{{ $gen_setting['contact_wa'] }}</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

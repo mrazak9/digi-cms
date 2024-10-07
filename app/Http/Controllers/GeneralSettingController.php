@@ -64,7 +64,7 @@ class GeneralSettingController extends Controller
         $loggedInUserId = Auth::id();
         $data['updated_by'] = $loggedInUserId;
 
-        if (Str::contains($data['name_setting'], 'logo')) {
+        if (Str::contains($data['name_setting'], ['logo', 'image'])) {
             // Validasi dan simpan file logo
 
             if ($request->hasFile('value')) {

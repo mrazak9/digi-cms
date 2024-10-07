@@ -21,6 +21,7 @@
         </div>
     </section>
     <!-- end page title -->
+
     <!-- start section -->
     <section>
         <div class="container">
@@ -33,6 +34,7 @@
                             <li class="pb-5px mb-10px border-bottom border-color-transparent-dark"><a
                                     href="services-details.html">Engineering</a><i
                                     class="feather icon-feather-arrow-right ms-auto icon-small"></i></li>
+
                             <li class="pb-5px mb-10px border-bottom border-color-transparent-dark text-dark-gray"><a
                                     href="services-details.html" class="text-dark-gray text-dark-gray-hover">Manufacturing
                                     machine services</a><i class="feather icon-feather-arrow-right ms-auto icon-small"></i>
@@ -98,35 +100,8 @@
                         .</p>
                     <img src="https://via.placeholder.com/785x435"
                         class="mt-30px md-mt-15px mb-60px md-mb-40px border-radius-6px" alt="">
-                    <div class="row row-cols-1 row-cols-md-2 mb-30px md-mb-15px">
-                        <div class="col">
-                            <span class="fs-22 text-dark-gray fw-700 mb-10px d-block">Full container load
-                                shipping</span>
-                            <p class="w-90 sm-w-100">Lorem ipsum dolor amet consectetur adipiscing elit sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                        </div>
-                        <div class="col">
-                            <span class="fs-22 text-dark-gray fw-700 mb-10px d-block">Less than container load
-                                shipping</span>
-                            <p class="w-90 sm-w-100">Lorem ipsum dolor amet consectetur adipiscing elit sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                        </div>
-                    </div>
-                    <div class="cover-background p-7 border-radius-6px mb-60px md-mb-40px d-flex justify-content-end align-items-end sm-h-500px"
-                        style="background-image: url(https://via.placeholder.com/785x412)">
-                        <div
-                            class="bg-white box-shadow-quadruple-large border-radius-4px w-50 lg-w-55 sm-w-100 overflow-hidden">
-                            <div class="p-40px lg-p-25px last-paragraph-no-margin">
-                                <span class="fs-22 text-dark-gray fw-700 mb-10px d-block">Customs clearance</span>
-                                <p>Lorem ipsum dolor sit amet conseetur adipiscing elit sed do eiusmod tempor incididunt
-                                    ut labore magna aliqua.</p>
-                            </div>
-                            <div class="bg-base-color p-15px text-center">
-                                <a href="contact-us.html" class="text-white text-white-hover fw-600"><i
-                                        class="feather icon-feather-mail me-10px"></i>Talk with our team</a>
-                            </div>
-                        </div>
-                    </div>
+
+
                     <h4 class="text-dark-gray fw-700 mb-40px lg-mb-30px d-block">Benefits of working with us</h4>
                     <div class="border border-color-extra-medium-gray border-radius-6px mb-40px xs-mb-30px overflow-hidden">
                         <p class="p-30px border-bottom border-1 border-color-extra-medium-gray mb-0"><span

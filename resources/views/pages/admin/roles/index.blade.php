@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
 
 @section('title', 'Roles')
 
@@ -18,7 +18,7 @@
         <a class="btn btn-primary" data-toggle="modal" data-target="#addRole">Tambah Role</a>
         <div class="row">
             <div class="col-12">
-                @include('layouts.alert')
+                @include('layouts.admin.alert')
             </div>
         </div>
         <table class="table">

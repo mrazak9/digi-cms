@@ -1,36 +1,36 @@
-@extends('layouts.app')
+@extends('layouts.admin.app')
 
-@section('title', 'Pegawai')
+@section('title', 'Patner')
 @section('main')
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>List Pegawai</h1>
+                <h1>List patners</h1>
 
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ url('/admin') }}">Dashboard</a></div>
-                    <div class="breadcrumb-item">List Pegawai</div>
+                    <div class="breadcrumb-item">List patners</div>
                 </div>
             </div>
             <div class="section-body">
                 <div class="row">
                     <div class="col-12">
-                        @include('layouts.alert')
+                        @include('layouts.admin.alert')
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Data Pegawai</h4>
+                                <h4>Data Patner</h4>
                                 <div class="section-header-button">
-                                    <a href="{{ route('employees.create') }}" class="btn btn-primary">Tambah Data
-                                        Pegawai</a>
+                                    <a href="{{ route('patners.create') }}" class="btn btn-primary">Tambah Data
+                                        Patner</a>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="float-right">
-                                    <form method="GET" action="{{ route('employees.index') }}">
+                                    <form method="GET" action="{{ route('patners.index') }}">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search" name="title">
                                             <div class="input-group-append">
@@ -48,28 +48,28 @@
                                             <tr>
                                                 <th>No. </th>
                                                 <th>Nama</th>
-                                                <th>Unit</th>
-                                                <th>Jabatan</th>
-                                                <th>Kelompok Unit</th>
+                                                <th>Description</th>
+                                                <th>URL</th>
+                                                <th>Logo</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @foreach ($employees as $employee)
+                                            @foreach ($patners as $patner)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td><a
-                                                            href="{{ route('employees.show', $employee->id) }}">{{ $employee->name }}</a>
+                                                            href="{{ route('patners.show', $patner->id) }}">{{ $patner->name }}</a>
                                                     </td>
-                                                    <td>{{ $employee->unit }}</td>
-                                                    <td>{{ $employee->position }}</td>
-                                                    <td>{{ $employee->group }}</td>
+                                                    <td>{{ $patner->description }}</td>
+                                                    <td>{{ $patner->url }}</td>
+                                                    <td>{{ $patner->logo }}</td>
                                                     <td>
                                                         <div class="d-flex justify-content-center">
-                                                            <a href="{{ route('employees.edit', $employee->id) }}"
+                                                            <a href="{{ route('patners.edit', $patner->id) }}"
                                                                 class="btn btn-sm btn-info btn-icon">Edit</a>
-                                                            <form action="{{ route('employees.destroy', $employee->id) }}"
+                                                            <form action="{{ route('patners.destroy', $patner->id) }}"
                                                                 method="post" style="display: inline-block;"
                                                                 onsubmit="return confirm('Anda yakin ingin menghapus?');">
                                                                 @csrf
@@ -85,7 +85,7 @@
                                     </table>
                                 </div>
                                 <div class="float-right">
-                                    {{ $employees->withQueryString()->links() }}
+                                    {{ $patners->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>
