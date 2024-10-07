@@ -11,6 +11,7 @@ use App\Http\Controllers\PatnerController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\TypeController;
@@ -32,27 +33,14 @@ Route::get('/', function () {
     return view('pages.frontend.index');
 });
 
+Route::get('/home', function () {
+    return view('pages.frontend.index');
+});
+
+Route::post('logout', [AdminController::class, 'logout'])->name('logout');
+Route::get('admin', [AdminController::class, 'index'])->name('admin');
+Route::get('search', [SearchController::class, 'search'])->name('search');
 Route::get('{slug}', [PageController::class, 'show_page'])->name('pages.show-page');
-
-// Route::get('about-us', function () {
-//     return view('pages.frontend.about-us');
-// });
-
-// Route::get('our-services', function () {
-//     return view('pages.frontend.our-services');
-// });
-
-// Route::get('service-details', function () {
-//     return view('pages.frontend.services-details');
-// });
-
-// Route::get('contact-us', function () {
-//     return view('pages.frontend.contact-us');
-// });
-
-// Route::get('client-patner', function () {
-//     return view('pages.frontend.client-patner');
-// });
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', function () {
