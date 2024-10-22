@@ -10,6 +10,7 @@ use App\Models\Laravisit;
 use App\Models\LoginLog;
 use App\Models\Menu;
 use App\Models\Page;
+use App\Models\Patner;
 use App\Models\Post;
 use App\Models\Slider;
 use App\Models\SocialMedia;
@@ -44,10 +45,14 @@ class AppServiceProvider extends ServiceProvider
             $footerLinks = FooterColumn::all();
             $footer_column_1 = FooterColumn::getByColumnName('1');
             $footer_column_2 = FooterColumn::getByColumnName('2');
+            $services_link = Post::select('title', 'slug') // Hanya mengambil kolom title dan slug
+                ->get();
+
 
             // Gunakan View Composer untuk mengirim data ke semua view
-            View::composer('layouts.*', function ($view) use ($footerLinks, $footer_column_1, $footer_column_2) {
+            View::composer('layouts.*', function ($view) use ($footerLinks, $footer_column_1, $footer_column_2, $services_link) {
                 $view->with('footerLinks', $footerLinks);
+                $view->with('service_links', $services_link);
                 $view->with('footerColumn1', $footer_column_1);
                 $view->with('footerColumn2', $footer_column_2);
             });
@@ -127,42 +132,24 @@ class AppServiceProvider extends ServiceProvider
             });
 
             //Untuk tampilan Home Page
-            view()->composer('pages.home.index', function ($view) {
-                $typeId_artikel = Type::where('slug', 'artikel')->value('id');
-                $typeId_berita = Type::where('slug', 'berita')->value('id');
-                $typeId_pengumuman = Type::where('slug', 'pengumuman')->value('id');
-                $articles = Post::where('type_id', $typeId_artikel)->whereHas('approval', function ($query) {
-                    $query->where('status', 'publish');
-                })
+            view()->composer('pages.frontend.pages.index', function ($view) {
+
+                //slider
+                //content page (image + text)
+                //call to action from contact
+                //list services
+                //list patners
+                $typeId_service = Type::where('slug', 'our-services')->value('id');
+                $services = Post::where('type_id', $typeId_service)
                     ->latest('created_at')
                     ->take(10)
                     ->get();
-                // dd($articles);
-                $last_news = Post::where('type_id', $typeId_berita)->whereHas('approval', function ($query) {
-                    $query->where('status', 'publish');
-                })
-                    ->latest('created_at')
-                    ->take(10)
-                    ->get();
-                $pengumuman = Post::where('type_id', $typeId_pengumuman)->whereHas('approval', function ($query) {
-                    $query->where('status', 'publish');
-                })
-                    ->latest('created_at')
-                    ->take(10)
-                    ->get();
-                $logo_dinasTerkaitSettings = GeneralSetting::where('name_setting', 'like', '%logo_dinas_terkait%')
-                    ->where('value', '!=', '-')
-                    ->get()
-                    ->pluck('value', 'name_setting');
-                $page = Page::where('slug', 'beranda')->first();
-                $list_category = Category::all();
+                $patners = Patner::all();
+                $page = Page::where('slug', 'home')->first();
                 $sliders = Slider::all();
                 $view->with('sliders', $sliders);
-                $view->with('logoDinasSettings', $logo_dinasTerkaitSettings);
-                $view->with('articles', $articles);
-                $view->with('pengumuman', $pengumuman);
-                $view->with('last_news', $last_news);
-                $view->with('list_category', $list_category);
+                $view->with('patners', $patners);
+                $view->with('services', $services);
                 $view->with('page', $page);
             });
 

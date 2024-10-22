@@ -41,10 +41,9 @@
                             Terkait
                         </a>
                     </li>
-                    <li class="{{ Request::is('admin/general-settings/profil_singkat') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ route('general-settings.show-type', ['type' => 'profil_singkat']) }}">Home
-                            - Profil Singkat
+                    <li class="{{ Request::is('admin/general-settings/company_profil') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('general-settings.show-type', ['type' => 'profil']) }}">Home
+                            - Company Profil
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/general-settings/other') ? 'active' : '' }}">

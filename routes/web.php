@@ -30,11 +30,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.frontend.index');
+    return view('pages.frontend.pages.index');
 });
 
 Route::get('/home', function () {
-    return view('pages.frontend.index');
+    return view('pages.frontend.pages.index');
 });
 
 Route::post('logout', [AdminController::class, 'logout'])->name('logout');

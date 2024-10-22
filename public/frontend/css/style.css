@@ -24211,3 +24211,18 @@ footer .footer-navbar .nav-item:last-child a {
 .footer-demo img {
   max-height: 55px !important;
 }
+
+.client-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 200px;
+  margin-right: 20px;
+  /* Jarak antar logo */
+}
+
+.client-slide img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

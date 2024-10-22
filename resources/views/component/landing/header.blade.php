@@ -97,16 +97,16 @@
                                        class="feather icon-feather-phone-call me-10px"></i>{{ $gen_setting['contact_wa'] }}</a>
                            </div>
                        </div>
-                       <div class="header-button ms-25px">
+                       {{-- <div class="header-button ms-25px">
                            <a href="contact-us.html"
                                class="btn btn-small btn-base-color btn-hover-animation-switch btn-round-edge btn-box-shadow fw-700 ls-0px btn-icon-left">
                                <span>
-                                   <span class="btn-text">Get a quote</span>
+                                   <span class="btn-text">{{ $gen_setting['contact_wa'] }}</span>
                                    <span class="btn-icon"><i class="feather icon-feather-mail"></i></span>
                                    <span class="btn-icon"><i class="feather icon-feather-mail"></i></span>
                                </span>
                            </a>
-                       </div>
+                       </div> --}}
                    </div>
                </div>
            </div>
