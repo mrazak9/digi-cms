@@ -55,7 +55,8 @@
                             </div>
                             <div class="feature-box-content last-paragraph-no-margin">
                                 <span class="d-block text-white">Customer care?</span>
-                                <a href="tel:1800222000" class="text-white fs-20 fw-700">1 800 222 000</a>
+                                <a href="tel:{{ $gen_setting['contact_wa'] }}"
+                                    class="text-white fs-20 fw-700">{{ $gen_setting['contact_wa'] }}</a>
                             </div>
                         </div>
                     </div>

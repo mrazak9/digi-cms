@@ -48,7 +48,7 @@
                             </div>
                             <div>
                                 <div class="p-30px w-80 xl-w-100 mx-auto text-center">
-                                    <a href="services-details.html"
+                                    <a href=" {{ $post->slug }}"
                                         class="d-inline-block fs-20 fw-600 text-dark-gray mb-5px">
                                         {{ $post->title }}
                                     </a>
