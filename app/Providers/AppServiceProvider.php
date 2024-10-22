@@ -164,16 +164,23 @@ class AppServiceProvider extends ServiceProvider
                 $types = Type::all();
                 $users = User::all();
 
-                $post_six = Post::latest()->whereHas('approval', function ($query) {
-                    $query->where('status', 'publish');
-                })->take(6)->get();
+                $post_six = Post::latest()
+                    // ->whereHas('approval', function ($query) {
+                    //     $query->where('status', 'publish');
+                    // })
+                    ->take(6)->get();
 
-                $posts = Post::whereHas('approval', function ($query) {
-                    $query->where('status', 'publish');
-                })->withTotalVisitCount()->get();
-                $pages = Page::whereHas('approval', function ($query) {
-                    $query->where('status', 'publish');
-                })->withTotalVisitCount()->get();
+                $posts = Post::
+                    // whereHas('approval', function ($query) {
+                    //     $query->where('status', 'publish');
+                    // })->
+                    withTotalVisitCount()->get();
+                $pages = Page::
+                    // whereHas('approval', function ($query) {
+                    //     $query->where('status', 'publish');
+                    // })
+                    // ->
+                    withTotalVisitCount()->get();
                 $laravisit = Laravisit::whereDate('created_at', Carbon::today())
                     ->get();
                 $totalVisitor = $laravisit->count();
