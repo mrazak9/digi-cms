@@ -226,7 +226,7 @@ class PageController extends Controller
             if ($page->type == 'default') {
                 // Jika ditemukan, tampilkan halaman
                 $categories = Post::getAllCategoriesWithCount();
-                // $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
+                $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
                 return view('pages.frontend.pages.default', compact('page', 'categories'));
             }
         } else {

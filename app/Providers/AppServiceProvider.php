@@ -86,36 +86,19 @@ class AppServiceProvider extends ServiceProvider
             });
 
             $typeId_artikel = Type::where('slug', 'artikel')->value('id');
-            $typeId_berita = Type::where('slug', 'berita')->value('id');
-            $typeId_pengumuman = Type::where('slug', 'pengumuman')->value('id');
-            $articles = Post::where('type_id', $typeId_artikel)->whereHas('approval', function ($query) {
-                $query->where('status', 'publish');
-            })
+            $articles = Post::where('type_id', $typeId_artikel)
+                // ->whereHas('approval', function ($query) {
+                //     $query->where('status', 'publish');
+                // })
                 ->latest('created_at')
                 ->take(3)
                 ->get();
             // dd($articles);
-            $last_news = Post::where('type_id', $typeId_berita)->whereHas('approval', function ($query) {
-                $query->where('status', 'publish');
-            })
-                ->latest('created_at')
-                ->take(3)
-                ->get();
-            $pengumuman = Post::where('type_id', $typeId_pengumuman)->whereHas('approval', function ($query) {
-                $query->where('status', 'publish');
-            })
-                ->latest('created_at')
-                ->take(3)
-                ->get();
-
             $list_category = Category::all();
             // $url_dinasTerkaitSettings = GeneralSetting::where('name_setting', 'like', '%logo_dinas_terkait%')->get()->pluck('value', 'name_setting');
 
-            View::composer('pages.posts.*', function ($view) use ($articles, $pengumuman, $last_news, $list_category) {
-
+            View::composer('pages.posts.*', function ($view) use ($articles, $list_category) {
                 $view->with('articles', $articles);
-                $view->with('pengumuman', $pengumuman);
-                $view->with('last_news', $last_news);
                 $view->with('list_category', $list_category);
             });
 
