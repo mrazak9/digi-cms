@@ -135,9 +135,9 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Latest Posts</h4>
+                            <h4>Latest Pages</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('posts.index') }}" class="btn btn-primary">View All</a>
+                                <a href="{{ route('pages.index') }}" class="btn btn-primary">View All</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -151,25 +151,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($posts as $post)
+                                        @foreach ($pages as $page)
                                             <tr>
                                                 <td style="width: 300px;">
-                                                    {{ $post->title }}
+                                                    {{ $page->title }}
                                                     <div class="table-links" style =" padding-bottom: 10px;">
-                                                        Jenis Post: <strong>{{ $post->type->name }}</strong>
-                                                        <div class="bullet"></div>
-                                                        <a href="/{{ $post->slug }}" target="_blank">View</a>
+                                                        {{-- Jenis Post: <strong>{{ $page->type->name }}</strong>
+                                                        <div class="bullet"></div> --}}
+                                                        <a href="/{{ $page->slug }}" target="_blank">View</a>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <a href="#" class="font-weight-600">
                                                         <img src="{{ asset('img/avatar/avatar-1.png') }}" alt="avatar"
                                                             width="20" class="rounded-circle mr-1">
-                                                        <small>{{ $post->user_update->name }}</small>
+                                                        <small>{{ $page->user_update->name }}</small>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('posts.edit', $post->id) }}"
+                                                    <a href="{{ route('pages.edit', $page->id) }}"
                                                         class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
                                                         title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                 </td>

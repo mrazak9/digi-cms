@@ -147,7 +147,7 @@ class AppServiceProvider extends ServiceProvider
                 $types = Type::all();
                 $users = User::all();
 
-                $post_six = Post::latest()
+                $page_six = Page::latest()
                     // ->whereHas('approval', function ($query) {
                     //     $query->where('status', 'publish');
                     // })
@@ -201,7 +201,7 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('browserData', $browserData);
                 $view->with('platformData', $platformData);
                 $view->with('types', $types);
-                $view->with('posts', $post_six);
+                $view->with('pages', $page_six);
             });
         }
     }
