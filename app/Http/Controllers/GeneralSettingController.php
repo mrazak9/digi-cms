@@ -104,7 +104,7 @@ class GeneralSettingController extends Controller
 
         if ($type == "other") {
 
-            $excludeTypes = ['footer', 'dinas_terkait', 'profil_singkat', 'contact', 'pengaduan'];
+            $excludeTypes = ['footer', 'contact', 'profil_company'];
 
             $settings = GeneralSetting::where(function ($query) use ($excludeTypes) {
                 foreach ($excludeTypes as $type) {

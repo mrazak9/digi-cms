@@ -4,16 +4,15 @@
             <!-- start footer column -->
             <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 md-mb-30px">
                 <a href="index.html" class="footer-logo mb-20px d-inline-block">
-                    <img src="frontend/images/img/logo_digi.JPG" data-at2x="images/demo-logistics-logo-white.png"
-                        alt="">
+                    <img src="{{ asset('storage/' . $gen_setting['logo_footer'] ?? '') }}" alt="">
                 </a>
-                <p class="fs-17 mx-auto xs-w-90">General Suplier, Engineering & IT Solutions.</p>
+                <p class="fs-17 mx-auto xs-w-90">{{ $gen_setting['text_footer_slogan'] }}</p>
 
             </div>
             <!-- end footer column -->
             <!-- start footer column -->
             <div class="col-lg-4 col-md-3 col-sm-5 offset-xl-1 offset-md-0 offset-sm-1 md-mb-30px">
-                <span class="fs-18 d-block text-white fw-500 mb-10px">About services</span>
+                <span class="fs-18 d-block text-white fw-500 mb-10px">{{ $gen_setting['text_footer_column_1'] }}</span>
                 <ul>
                     @foreach ($service_links as $service)
                         <li><a href="{{ $service->slug }}">{{ $service->title }}</a></li>
@@ -23,7 +22,7 @@
             <!-- end footer column -->
             <!-- start footer column -->
             <div class="col-lg-4 col-md-4 col-sm-5 offset-md-0 offset-sm-1 order-5 order-md-3 xs-mb-30px">
-                <span class="fs-18 d-block text-white fw-500 mb-10px">Need help?</span>
+                <span class="fs-18 d-block text-white fw-500 mb-10px">{{ $gen_setting['text_footer_column_2'] }}</span>
                 <span class="d-block">Call us directly?</span>
                 <a href="tel:{{ $gen_setting['contact_wa'] }}"
                     class="mb-15px d-inline-block">{{ $gen_setting['contact_wa'] }}</a>

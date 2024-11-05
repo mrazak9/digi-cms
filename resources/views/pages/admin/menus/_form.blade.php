@@ -9,10 +9,10 @@
     <select class="form-control" name="newSlugPage" id="slug_page">
         <option value="">Pilih Halaman</option>
         <option value="#">Tidak Ada URL</option>
-        @foreach ($pages as $page)
-            <option value="{{ $page->slug }}"
-                {{ old('slug_page', $menu->slug_page ?? '') == $page->slug ? 'selected' : '' }}>
-                {{ $page->title }}
+        @foreach ($mergedData as $data)
+            <option value="{{ $data->slug }}"
+                {{ old('slug_page', $menu->slug_page ?? '') == $data->slug ? 'selected' : '' }}>
+                {{ $data->title }}
             </option>
         @endforeach
         <option value="new">+ Input URL Custom..</option>

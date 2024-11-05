@@ -65,7 +65,7 @@ class AppServiceProvider extends ServiceProvider
                 ->with('submenus') // ambil submenus dari menu
                 ->orderBy('sequence')
                 ->get();
-
+            // dd($menu_setting);
             // Loop melalui setiap menu dan cek type berdasarkan slug_page
             foreach ($menu_setting as $menu) {
                 // Cari type berdasarkan slug_page dari Menu di tabel Type

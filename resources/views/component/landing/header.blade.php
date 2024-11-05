@@ -26,12 +26,12 @@
            <div class="container-fluid">
                <div class="col-auto">
                    <a class="navbar-brand" href="index.html">
-                       <img src="{{ asset('storage/' . $gen_setting['logo'] ?? '') }}"
-                           data-at2x="frontend/images/img/logo_digi@2x.JPG" alt="" class="default-logo">
-                       <img src="{{ asset('storage/' . $gen_setting['logo'] ?? '') }}"
-                           data-at2x="frontend/images/img/logo_digi@2x.JPG" alt="" class="alt-logo">
-                       <img src="{{ asset('storage/' . $gen_setting['logo'] ?? '') }}"
-                           data-at2x="frontend/images/img/logo_digi@2x.JPG" alt="" class="mobile-logo">
+                       <img src="{{ asset('storage/' . $gen_setting['profil_company_logo'] ?? '') }}" alt=""
+                           class="default-logo">
+                       <img src="{{ asset('storage/' . $gen_setting['profil_company_logo'] ?? '') }}" alt=""
+                           class="alt-logo">
+                       <img src="{{ asset('storage/' . $gen_setting['profil_company_logo'] ?? '') }}" alt=""
+                           class="mobile-logo">
                    </a>
                </div>
                <div class="col-auto menu-order left-nav">

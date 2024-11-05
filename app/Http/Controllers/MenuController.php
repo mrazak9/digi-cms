@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MenuRequest;
 use App\Models\Menu;
 use App\Models\Page;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,8 +22,13 @@ class MenuController extends Controller
     {
         $type_menu = 'settings';
         $pages = Page::all();
+        $pages_data = Page::select('title', 'slug')->get();
+        $posts_data = Post::select('title', 'slug')->get();
+
+        // Gabungkan kedua koleksi
+        $mergedData = collect($pages_data)->concat($posts_data);
         $menus = Menu::all();
-        return view('pages.admin.menus.create', compact('type_menu', 'pages', 'menus'));
+        return view('pages.admin.menus.create', compact('type_menu', 'pages', 'menus', 'mergedData'));
     }
 
     public function store(MenuRequest $request)

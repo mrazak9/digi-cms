@@ -54,8 +54,8 @@
                                 @foreach ($services as $service)
                                     <div class="swiper-slide">
                                         <div class="row g-0 services-box-style-02">
-                                            <div
-                                                class="col-sm-6 services-box bg-white p-10 xxl-p-8 xl-p-6 box-shadow-extra-large">
+                                            <div class="col-sm-6 services-box bg-white p-10 xxl-p-8 xl-p-6 box-shadow-extra-large"
+                                                style="min-height: 300px; display: flex; flex-direction: column; justify-content: space-between;">
                                                 <div class="services-box-icon">
                                                     @php
                                                         $iconClass = '';
@@ -77,12 +77,14 @@
 
                                                     <i
                                                         class="{{ $iconClass }} icon-double-large text-base-color mb-25px"></i>
-
                                                 </div>
                                                 <div class="services-box-content">
                                                     <a href="our-services.html"
                                                         class="d-inline-block text-dark-gray fs-22 fw-700 mb-5px">{{ $service->title }}</a>
-                                                    <p class="mb-15px">{{ $service->content_short }}</p>
+                                                    <p
+                                                        style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        {{ $service->content_short }}
+                                                    </p>
                                                     <a href="{{ $service->slug }}"
                                                         class="btn btn-extra-large thin btn-link text-dark-gray p-0">Learn
                                                         more</a>
@@ -90,7 +92,7 @@
                                             </div>
                                             <div class="col-sm-6 services-box-img xs-h-300px">
                                                 <div class="h-100 cover-background"
-                                                    style="background-image: url({{ asset('storage/' . $service->image ?? '') }})">
+                                                    style="background-image: url({{ asset('storage/' . $service->image ?? '') }}); background-size: cover; background-position: center; height: 300px;">
                                                 </div>
                                             </div>
                                         </div>

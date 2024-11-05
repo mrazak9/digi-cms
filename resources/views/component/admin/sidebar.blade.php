@@ -1,11 +1,12 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="/admin"><img src="{{ asset('storage/' . $gen_setting['logo'] ?? '') }}" alt="logo"
+            <a href="/admin"><img src="{{ asset('storage/' . $gen_setting['profil_company_logo'] ?? '') }}" alt="logo"
                     width="100px"></a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="/admin"> <img src="{{ asset('img/logo1.png') }}" alt="logo" width="40"></a>
+            <a href="/admin"> <img src="{{ asset('storage/' . $gen_setting['profil_company_logo'] ?? '') }}"
+                    alt="logo" width="40"></a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
@@ -21,24 +22,10 @@
                         <a class="nav-link"
                             href="{{ route('general-settings.show-type', ['type' => 'footer']) }}">Footer</a>
                     </li>
-                    <li class="{{ Request::is('admin/footer*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('footer_columns.index') }}">Footer Link</a>
-                    </li>
+
                     <li class="{{ Request::is('admin/general-settings/contact') ? 'active' : '' }}">
                         <a class="nav-link"
                             href="{{ route('general-settings.show-type', ['type' => 'contact']) }}">Kontak
-                        </a>
-                    </li>
-                    <li class="{{ Request::is('admin/general-settings/pengaduan') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ route('general-settings.show-type', ['type' => 'pengaduan']) }}">Kontak -
-                            Pengaduan
-                        </a>
-                    </li>
-                    <li class="{{ Request::is('admin/general-settings/dinas_terkait') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ route('general-settings.show-type', ['type' => 'dinas_terkait']) }}">Home - Dinas
-                            Terkait
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/general-settings/company_profil') ? 'active' : '' }}">
@@ -65,9 +52,9 @@
                     <li class="{{ Request::is('admin/menus') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('menus.index') }}">Pengaturan Menu</a>
                     </li>
-                    <li class="{{ Request::is('admin/footer*') ? 'active' : '' }}">
+                    {{-- <li class="{{ Request::is('admin/footer*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('footer_columns.index') }}">Footer Column</a>
-                    </li>
+                    </li> --}}
                     <li class="{{ Request::is('admin/social_media*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('social_medias.index') }}">Sosial Media</a>
                     </li>
@@ -77,7 +64,7 @@
                     {{-- <li class="{{ Request::is('admin/food_prices*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('food_prices.index') }}">Harga Pangan</a>
                     </li> --}}
-                    <li class="{{ Request::is('admin/patner*') ? 'active' : '' }}">
+                    <li class="{{ Request::is('admin/patners*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('patners.index') }}">Data Patners</a>
                     </li>
 
@@ -121,9 +108,9 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-newspaper"></i>
                     <span>Setting Post</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('admin/posts-approval*') ? 'active' : '' }}">
+                    {{-- <li class="{{ Request::is('admin/posts-approval*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('posts.approval') }}">Konfirmasi Postingan</a>
-                    </li>
+                    </li> --}}
                     <li class="{{ Request::is('admin/categories*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('categories.index') }}">Kategori</a>
                     </li>
@@ -168,13 +155,13 @@
                     @endforeach
                 </ul>
             </li>
-            @if ($menu_agenda)
+            {{-- @if ($menu_agenda)
                 <li class="{{ $type_menu === 'agenda' ? 'active' : '' }}">
                     <a class="nav-link"
                         href="{{ route('posts.index', ['type_id' => $menu_agenda->id ? 'active' : '']) }}">
                         <i class="fa-regular fa-calendar"></i><span>Agenda</span></a>
                 </li>
-            @endif
+            @endif --}}
             {{-- <li class="nav-item dropdown {{ $type_menu === 'agenda' ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fa-regular fa-calendar"></i>
                     <span>Agenda</span></a>

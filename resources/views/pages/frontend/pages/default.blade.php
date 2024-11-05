@@ -12,7 +12,7 @@
             <div class="row align-items-center justify-content-center small-screen">
                 <div class="col-xl-5 col-sm-8 page-title-double-large text-center"
                     data-anime='{ "el": "childs", "opacity": [0, 1], "translateY": [30, 0], "duration": 600, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                    <h1 class="text-white fw-700 mb-5px">About us</h1>
+                    <h1 class="text-white fw-700 mb-5px">{{ $page->title }}</h1>
                 </div>
             </div>
         </div>
