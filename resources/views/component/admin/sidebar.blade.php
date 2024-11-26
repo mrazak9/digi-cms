@@ -74,7 +74,7 @@
                 <a class="nav-link" href="{{ route('faqs.index') }}"><i class="far fa-square"></i> <span>FAQ
                         Page</span></a>
             </li> --}}
-            <li class="nav-item dropdown {{ $type_menu === 'user_setting' ? 'active' : '' }}">
+            {{-- <li class="nav-item dropdown {{ $type_menu === 'user_setting' ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fa-solid fa-users-gear"></i>
                     <span>Pengaturan Pengguna</span></a>
                 <ul class="dropdown-menu">
@@ -88,6 +88,15 @@
                         <a class="nav-link" href="{{ route('roles.index') }}">Peran</a>
                     </li>
                 </ul>
+            </li> --}}
+
+            <li class="menu-header">Messages</li>
+            <li class="{{ $type_menu === 'contacts' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.contacts.index') }}"><i class="fas fa-inbox"></i>
+                    <span>
+                        Inbox Messages
+                    </span>
+                </a>
             </li>
             <li class="nav-item dropdown {{ $type_menu === 'page' ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fa-regular fa-file-lines"></i>

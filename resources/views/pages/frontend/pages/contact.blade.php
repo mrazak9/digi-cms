@@ -34,13 +34,13 @@
                         <p class="mb-35px w-90 lg-w-100 sm-mb-25px">We are committed to providing the best service
                             and product quality for you.
                         </p>
-                        {{-- <a href="#"
+                        <a href="{{ route('contact.index') }}"
                             class="btn btn-large btn-switch-text btn-dark-gray left-icon btn-box-shadow btn-round-edge">
                             <span>
-                                <span><i class="bi bi-telephone-outbound"></i></span>
-                                <span class="btn-double-text" data-text="Schedule a call">Schedule a call</span>
+                                <span><i class="bi bi-send-plus"></i></span>
+                                <span class="btn-double-text" data-text="Ask us more">Ask us more</span>
                             </span>
-                        </a> --}}
+                        </a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7 offset-xl-1">

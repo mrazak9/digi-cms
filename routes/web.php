@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FooterColumnController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GeneralSettingController;
@@ -36,6 +37,15 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('pages.frontend.pages.index');
 });
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'store'])
+    // ->middleware('throttle:5,1') // Maks 5 permintaan per menit
+    ->name('contact.store');
+
+Route::get('/thank-you', function () {
+    return view('pages.frontend.thank-you');
+})->name('thank-you');
 
 Route::post('logout', [AdminController::class, 'logout'])->name('logout');
 Route::get('admin', [AdminController::class, 'index'])->name('admin');
@@ -87,4 +97,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/filter-approvals', [PostController::class, 'filterByStatus']);
     // routes/web.php
     Route::get('/get-weekly-data', [AdminController::class, 'getWeeklyData']);
+
+    Route::get('/contacts', [ContactController::class, 'indexAdmin'])->name('admin.contacts.index');
+    Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('admin.contacts.destroy');
+    Route::get('/admin/contacts/{id}', [ContactController::class, 'show'])->name('admin.contacts.show');
 });
