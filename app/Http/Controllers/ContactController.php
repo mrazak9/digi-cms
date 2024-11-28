@@ -56,8 +56,9 @@ class ContactController extends Controller
 
     public function show($id)
     {
+        $type_menu = 'contacts';
         $contact = Contact::findOrFail($id);
-        return view('pages.admin.contacts.show', compact('contact'));
+        return view('pages.admin.contacts.show', compact('contact', 'type_menu'));
     }
 
     public function destroy($id)
