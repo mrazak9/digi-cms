@@ -164,6 +164,7 @@ class PageController extends Controller
             ->first();
 
         if ($page) {
+
             if ($page->type == 'service_list') {
                 $type = Type::where('slug', $slug)->first();
                 $posts = Post::where('type_id', $type->id)
@@ -200,7 +201,8 @@ class PageController extends Controller
                 return view('pages.frontend.pages.patners', compact('page', 'patners'));
             }
 
-            if (Str::contains($page->slug, ['contact'])) {
+            if (Str::contains($page->slug, ['contact-us'])) {
+                // return $page;
                 // Jika ditemukan, tampilkan halaman
                 $page->visit()->hourlyIntervals()->withIP()->withSession()->withUser()->withData($data_visitor);
                 return view('pages.frontend.pages.contact', compact('page'));

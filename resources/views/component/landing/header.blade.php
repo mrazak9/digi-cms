@@ -25,7 +25,7 @@
        <nav class="navbar navbar-expand-lg header-light bg-white header-reverse" data-header-hover="light">
            <div class="container-fluid">
                <div class="col-auto">
-                   <a class="navbar-brand" href="index.html">
+                   <a class="navbar-brand" href="/">
                        <img src="{{ asset('storage/' . $gen_setting['profil_company_logo'] ?? '') }}" alt=""
                            class="default-logo">
                        <img src="{{ asset('storage/' . $gen_setting['profil_company_logo'] ?? '') }}" alt=""
@@ -97,16 +97,16 @@
                                        class="feather icon-feather-phone-call me-10px"></i>{{ $gen_setting['contact_wa'] }}</a>
                            </div>
                        </div>
-                       {{-- <div class="header-button ms-25px">
-                           <a href="contact-us.html"
+                       <div class="header-button ms-25px">
+                           <a href="{{ route('contact.index') }}"
                                class="btn btn-small btn-base-color btn-hover-animation-switch btn-round-edge btn-box-shadow fw-700 ls-0px btn-icon-left">
                                <span>
-                                   <span class="btn-text">{{ $gen_setting['contact_wa'] }}</span>
+                                   <span class="btn-text">{{ $gen_setting['contact_text_btn'] }}</span>
                                    <span class="btn-icon"><i class="feather icon-feather-mail"></i></span>
                                    <span class="btn-icon"><i class="feather icon-feather-mail"></i></span>
                                </span>
                            </a>
-                       </div> --}}
+                       </div>
                    </div>
                </div>
            </div>

@@ -38,7 +38,8 @@
                             class="btn btn-large btn-switch-text btn-dark-gray left-icon btn-box-shadow btn-round-edge">
                             <span>
                                 <span><i class="bi bi-send-plus"></i></span>
-                                <span class="btn-double-text" data-text="Ask us more">Ask us more</span>
+                                <span class="btn-double-text"
+                                    data-text="{{ $gen_setting['contact_text_btn'] }}">{{ $gen_setting['contact_text_btn'] }}</span>
                             </span>
                         </a>
                     </div>
